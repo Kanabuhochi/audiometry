@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Results.unity
+- path: Assets/Scenes/Measure.unity
   isLoaded: 1
   isActive: 1

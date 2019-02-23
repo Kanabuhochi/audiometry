@@ -6,12 +6,30 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Measure.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 7e5c7a35df056d84dbfa03011c13b744
   - enabled: 1
+    path: Assets/Scenes/Measure.unity
+    guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
     path: Assets/Scenes/Results.unity
     guid: 6facfb259b183604694bc6c712c701a1
+  - enabled: 1
+    path: Assets/Scenes/About.unity
+    guid: e2bad3c334b7dbe418baf89e3fa2bce5
+  - enabled: 1
+    path: Assets/Scenes/Instruct.unity
+    guid: 287d3c8ed4c43984c84feca3870a4521
+  - enabled: 1
+    path: Assets/Scenes/Instruct2.unity
+    guid: b80abd7bacbb51a49b87566a17c18465
+  - enabled: 1
+    path: Assets/Scenes/CalibInfo.unity
+    guid: 7b9f8893e3c530748bf2b4f57741f2d8
+  - enabled: 1
+    path: Assets/Scenes/CalibInfo2.unity
+    guid: a699c9dd7d81fdf43a661c2b8415d1af
+  - enabled: 1
+    path: Assets/Scenes/Calibration.unity
+    guid: 1d9ba266e005702459dc97c7b2014b78
   m_configObjects: {}
