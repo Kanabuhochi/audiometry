@@ -81,7 +81,7 @@ public class ProceduralAudioController : MonoBehaviour {
                 fp = touch.position;
                 lp = touch.position;
             }
-            else if (touch.phase == TouchPhase.Moved) 
+            else if (touch.phase == TouchPhase.Moved) {
                 lp = touch.position;
             }
             else if (touch.phase == TouchPhase.Ended) 
@@ -131,6 +131,7 @@ public class ProceduralAudioController : MonoBehaviour {
 					SceneManager.LoadScene("Results");
 				}	
 			}
+		}
 	}
 
 	void OnAudioFilterRead(float[] data, int channels){

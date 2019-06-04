@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-D:/Unity Projects/Audiometr/1.apk
+C:/Users/Kanabuhochi/Documents/GitHub/audiometry/Audiometr/audiometry.apk
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/Measure.unity

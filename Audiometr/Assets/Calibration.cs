@@ -134,7 +134,7 @@ public class Calibration : MonoBehaviour {
 				data[i * channels + j] = x;
 			}
 			float[] spectrum = new float[256];
-			calibration = AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
+//			calibration = AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);
 		}
 	}
 	double mapValueD(double referenceValue, double fromMin, double fromMax, double toMin, double toMax) {
