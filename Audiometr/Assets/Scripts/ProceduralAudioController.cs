@@ -20,8 +20,12 @@ public class ProceduralAudioController : MonoBehaviour {
 
 	SinusWave sinusAudioWave;
 	SinusWave amplitudeModulationOscillator;
+	SinusWave frequencyModulationOscillator;
+
+	public double testFreq = 500;
 
 	public bool autoPlay;
+	public bool useSinusAudioWave;
 
 	[Header("Volume / Frequency")]
 	[Range(0.0f,1.0f)]
@@ -30,19 +34,24 @@ public class ProceduralAudioController : MonoBehaviour {
 	public double mainFrequency = 500;
 	[Space(10)]
 
-	[Header("Tone Adjustment")]
-	public bool useSinusAudioWave;
-	[Range(0.0f,1.0f)]
-	public float sinusAudioWaveIntensity = 0.25f;
-
-	[Space(10)]
-
 	[Header("Amplitude Modulation")]
 	public bool useAmplitudeModulation;
 	[Range(0.2f,30.0f)]
 	public float amplitudeModulationOscillatorFrequency = 1.0f;
+	[Header("Frequency Modulation")]
+	public bool useFrequencyModulation;
+	[Range(0.2f,30.0f)]
+	public float frequencyModulationOscillatorFrequency = 1.0f;
+	[Range(1.0f,100.0f)]
+	public float frequencyModulationOscillatorIntensity = 10.0f;
 
+	[Header("Out Values")]
+	[Range(0.0f,1.0f)]
+	public float amplitudeModulationRangeOut;
+	[Range(0.0f,1.0f)]
+	public float frequencyModulationRangeOut;
 	float mainFrequencyPreviousValue;
+	float sinusAudioWaveIntensity;
 
 	private double sampleRate;	
 	private double dataLen;		
@@ -102,14 +111,12 @@ public class ProceduralAudioController : MonoBehaviour {
 				resultsTable.GetComponent<resultsScript>().results[freq] = db+80.0f;
 				if(resultsTable.GetComponent<resultsScript>().results[15]<db+80.0f)
 					resultsTable.GetComponent<resultsScript>().results[15]=db+80.0f;
-
 				freq+=1;
 				mainFrequency*=2;
+				testFreq = mainFrequency + UnityEngine.Random.Range(-10.0f, 10.0f);
 				invokeCheck = false;
 				db = -80.0f;
             }
-			
-        
 			if(mainFrequency > 8000){
 				if(right == false){
 					int f=125;
@@ -146,9 +153,18 @@ public class ProceduralAudioController : MonoBehaviour {
 			preciseDspTime = currentDspTime +  i * dspTimeStep;
 			double signalValue = 0.0;
 			double currentFreq = mainFrequency;
+
+			if (useFrequencyModulation) {
+
+				double freqOffset = (frequencyModulationOscillatorIntensity * mainFrequency * 0.75) / 100.0;
+				currentFreq += mapValueD (frequencyModulationOscillator.calculateSignalValue (preciseDspTime, frequencyModulationOscillatorFrequency), -1.0, 1.0, -freqOffset, freqOffset);
+				frequencyModulationRangeOut = (float)frequencyModulationOscillator.calculateSignalValue (preciseDspTime, frequencyModulationOscillatorFrequency) * 0.5f + 0.5f;
+			} else {
+				frequencyModulationRangeOut = 0.0f;
+			}
 			
 			if (useSinusAudioWave) {
-				signalValue += sinusAudioWaveIntensity * sinusAudioWave.calculateSignalValue (preciseDspTime, currentFreq);
+				signalValue += 1 * sinusAudioWave.calculateSignalValue (preciseDspTime, currentFreq);
 			}
 
 			if (useAmplitudeModulation) {
