@@ -5,7 +5,6 @@ using UnityEngine;
 public class resultsScript : MonoBehaviour {
 
 	public float[] results = new float[17];
-	public bool isCalibrated = false;
 
 	// Use this for initialization
 	void Start () {

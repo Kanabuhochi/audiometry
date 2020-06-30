@@ -20,14 +20,14 @@ public class Calibration : MonoBehaviour {
 	SinusWave amplitudeModulationOscillator;
 	SinusWave frequencyModulationOscillator;
 
-	
+	public GameObject calibrationValue;	
 
 	public bool autoPlay;
 	public bool useSinusAudioWave;
 
 	[Header("Volume / Frequency")]
 	[Range(0.0f,1.0f)]
-	public float masterVolume = 0.5f;
+	public float masterVolume = 1f;
 	[Range(100,8000)]
 	public double mainFrequency = 500;
 	[Space(10)]
@@ -66,8 +66,8 @@ public class Calibration : MonoBehaviour {
 		sourceSound.panStereo = -1.0f;
 		
 		right = false;
-		db = -80.0f;
-		freq = 0;
+		db = -50.0f;
+		freq = 125;
 		sinusAudioWave = new SinusWave ();
 		useSinusAudioWave = true;
 		amplitudeModulationOscillator = new SinusWave ();
@@ -79,39 +79,14 @@ public class Calibration : MonoBehaviour {
 
 	void Update(){
 		masterMixer.SetFloat ("dbLevel", db);
-		if (Input.touchCount == 1)
-        {
-            Touch touch = Input.GetTouch(0); 
-            if (touch.phase == TouchPhase.Began) 
-            {
-                fp = touch.position;
-                lp = touch.position;
-            }
-            else if (touch.phase == TouchPhase.Moved) {
-                lp = touch.position;
-            }
-            else if (touch.phase == TouchPhase.Ended) 
-            {
-                lp = touch.position;  
-                if (Mathf.Abs(lp.x - fp.x) > dragDistance || Mathf.Abs(lp.y - fp.y) > dragDistance)
-                {
-                 
-                    if (lp.y > fp.y)  {
-                    }
-                    else
-                    {   
-                    }
-                }
-                else
-                {  
-                }
-				freq+=1;
-				mainFrequency*=2;
-				invokeCheck = false;
-				db = -80.0f;
-            }
-			
-        
+
+		if(db == 0) {
+			freq+=1;
+			mainFrequency*=2;
+			invokeCheck = false;
+			db = -80.0f;
+		}
+		
 			if(mainFrequency > 8000){
 				
 					int f=125;
@@ -122,7 +97,6 @@ public class Calibration : MonoBehaviour {
 					SceneManager.LoadScene("CalibInfo2");
 				
 			}
-		}
 	}
 
 	void OnAudioFilterRead(float[] data, int channels){
@@ -173,7 +147,7 @@ public class Calibration : MonoBehaviour {
 	void DBUp()
 	{
 		if(invokeCheck == true){
-			if(db<0){
+			if(db<40){
 				db+=5f;
 				masterMixer.SetFloat ("dbLevel", db);
 			}

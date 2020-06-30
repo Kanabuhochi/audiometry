@@ -32,12 +32,17 @@ public class MainMenu : MonoBehaviour {
 
 	public void CalibInfo()
 	{
-		SceneManager.LoadScene("CalibInfo"); 
+		SceneManager.LoadScene("NewCalib"); 
 	}
 
 	public void Back()
 	{
 		SceneManager.LoadScene("Menu"); 
+	}
+
+	public void CalibConfig()
+	{
+		SceneManager.LoadScene("NewCalib2"); 
 	}
 
 

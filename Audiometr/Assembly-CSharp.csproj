@@ -54,6 +54,9 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Calibration.cs" />
+     <Compile Include="Assets\calibrationSounds.cs" />
+     <Compile Include="Assets\calibrationValue.cs" />
+     <Compile Include="Assets\calibrationValue2.cs" />
      <Compile Include="Assets\CodeMonkey\Assets.cs" />
      <Compile Include="Assets\CodeMonkey\CMDebug.cs" />
      <Compile Include="Assets\CodeMonkey\MonoBehaviours\CameraFollow.cs" />
@@ -73,12 +76,21 @@
      <Compile Include="Assets\CodeMonkey\Utils\World_Bar.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
      <Compile Include="Assets\CodeMonkey\Utils\World_Sprite.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleAudio.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModulePhysics2D.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleSprite.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUI.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
+     <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\resultsScript.cs" />
      <Compile Include="Assets\Scripts\Classes\SinusWave.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ProceduralAudioController.cs" />
+     <Compile Include="Assets\Scripts\toggleScript.cs" />
      <Compile Include="Assets\Scripts\WindowGraph.cs" />
      <None Include="Assets\CodeMonkey\README.txt" />
+     <None Include="Assets\Demigiant\DOTween\readme.txt" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Kanabuhochi/Documents/GitHub/audiometry/Audiometr/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
  </Reference>
@@ -285,6 +297,9 @@
  </Reference>
  <Reference Include="UnityEngine.SpatialTracking">
  <HintPath>D:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="DOTween">
+ <HintPath>C:/Users/Kanabuhochi/Documents/GitHub/audiometry/Audiometr/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Analytics">
  <HintPath>C:/Users/Kanabuhochi/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
