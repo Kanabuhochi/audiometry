@@ -547,6 +547,7 @@ MonoBehaviour:
   text: {fileID: 1370152791}
   incr: {fileID: 1964602099}
   masterMixer: {fileID: 24100000, guid: 61e671146a473ab4d8eb79708c8e94f2, type: 2}
+  staticMixer: {fileID: 24100000, guid: 99075536a057af542bebc5f57624a5a0, type: 2}
   sourceSound: {fileID: 877950956}
   staticSound: {fileID: 148556730}
   db: 0
@@ -559,6 +560,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c7bc201804f92b642a27c3b993ac6f93, type: 3}
   - {fileID: 8300000, guid: dbd3b753cb47e8d4cbf39a14ee4268b0, type: 3}
   - {fileID: 8300000, guid: 9e2d0df2b651f984cbd8c4316437db4d, type: 3}
+  calibrationValue: {fileID: 0}
   testFreq: 500
   autoPlay: 0
   useSinusAudioWave: 0
@@ -571,7 +573,6 @@ MonoBehaviour:
   frequencyModulationOscillatorIntensity: 10
   amplitudeModulationRangeOut: 0
   frequencyModulationRangeOut: 0
-  isCalibrated: 0
   freqClip: 0
   increment: 0
 --- !u!82 &877950956

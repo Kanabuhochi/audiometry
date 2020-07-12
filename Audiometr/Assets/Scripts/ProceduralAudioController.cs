@@ -12,6 +12,7 @@ public class ProceduralAudioController : MonoBehaviour {
 	public Text text;
 	public Text incr;
 	public AudioMixer masterMixer;
+	public AudioMixer staticMixer;
 	public AudioSource sourceSound;
 	public AudioSource staticSound;
 	public float db;
@@ -36,7 +37,7 @@ public class ProceduralAudioController : MonoBehaviour {
 	[Range(0.0f,1.0f)]
 	public float masterVolume = 0.5f;
 	[Range(100,8000)]
-	public double mainFrequency = 500;
+	public float mainFrequency = 125.0f;
 	[Space(10)]
 
 	[Header("Amplitude Modulation")]
@@ -60,10 +61,10 @@ public class ProceduralAudioController : MonoBehaviour {
 
 	public int freqClip;
 
-    private float impendation = 0.0f;
-	private float power = 0.0f;
+    private float impendation ;
+	private float power;
 
-	private float noiseLevel = 100.0f;
+	private float noiseLevel;
 	private bool safety = true;
 
 	private double sampleRate;	
@@ -84,12 +85,16 @@ public class ProceduralAudioController : MonoBehaviour {
 		sourceSound.panStereo = -1.0f;
 		staticSound.panStereo = 1.0f;
 		right = false;
-		db = -50.0f;
+		db = -80.0f;
 		freq = 0;
-		impendation =  GameObject.Find("Calibration").GetComponent<calibrationValue>().impendation;
-		power =  GameObject.Find("Calibration").GetComponent<calibrationValue>().power;
-		noiseLevel = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().noise;
-		safety = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().safe;
+		//impendation = GameObject.Find("Calibration").GetComponent<calibrationValue>().impendation;
+		impendation = 16.0f;
+		power = 110.0f;
+		//power = GameObject.Find("Calibration").GetComponent<calibrationValue>().power;
+		//noiseLevel = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().noise;
+		noiseLevel = db-(db*0.8f);
+		//safety = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().safe;
+		safety = true;
 		sinusAudioWave = new SinusWave ();
 		useSinusAudioWave = true;
 		amplitudeModulationOscillator = new SinusWave ();
@@ -101,9 +106,10 @@ public class ProceduralAudioController : MonoBehaviour {
 
 	void Update(){
 		masterMixer.SetFloat ("dbLevel", db);
+		staticMixer.SetFloat ("dbLevel", noiseLevel);
 		text.text = mainFrequency.ToString();
-		//incr.text = increment.ToString();
-		incr.text = safety.ToString();
+		incr.text = increment.ToString();
+
 		if (Input.touchCount == 1)
         {
             Touch touch = Input.GetTouch(0); 
@@ -144,7 +150,8 @@ public class ProceduralAudioController : MonoBehaviour {
 				mainFrequency*=2;
 				testFreq = mainFrequency + UnityEngine.Random.Range(-10.0f, 10.0f);
 				invokeCheck = false;
-				db = -50.0f;
+				db = -80.0f;
+				noiseLevel = db-(db*0.8f);
             }
 			if(mainFrequency > 8000){
 				if(right == false){
@@ -157,6 +164,7 @@ public class ProceduralAudioController : MonoBehaviour {
 					}
 					mainFrequency = 125;
 					db = -80.0f;
+					noiseLevel = db-(db*0.8f);
 					sourceSound.panStereo = 1.0f;
 					staticSound.panStereo = -1.0f;
 					right = true;
@@ -167,6 +175,7 @@ public class ProceduralAudioController : MonoBehaviour {
 						f=f*2;
 					}
 					db = -80.0f;
+					noiseLevel = db-(db*0.8f);
 					SceneManager.LoadScene("Results");
 				}	
 			}
@@ -223,10 +232,12 @@ public class ProceduralAudioController : MonoBehaviour {
 	{
 		float test = power - 80.0f - impendation;
 		if(invokeCheck == true){
-			if(db<test){
+			if(db<0){
 				db+=5f;
+				noiseLevel = db-(db*0.8f);
 				increment+=1;
 				masterMixer.SetFloat ("dbLevel", db);
+				staticMixer.SetFloat ("dbLevel", noiseLevel);
 			}
 			else if(db >=0 ){
 			}

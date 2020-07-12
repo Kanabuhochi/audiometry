@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+ using UnityEngine.SceneManagement;
+
 
 public class toggleScript : MonoBehaviour, IPointerDownHandler {
 
@@ -27,6 +29,9 @@ public class toggleScript : MonoBehaviour, IPointerDownHandler {
 
 	private float offX;
 	private float onX;
+	[SerializeField]
+	public GameObject isToggled;
+
 
 	[SerializeField]
 	private float tweenTime = 0.25f;
@@ -37,7 +42,25 @@ public class toggleScript : MonoBehaviour, IPointerDownHandler {
 	// Use this for initialization
 	void Start () {
 		offX = toggleIndicator.anchoredPosition.x;
-		onX = backgroundImage.rectTransform.rect.width - toggleIndicator.rect.width;
+		onX = -toggleIndicator.anchoredPosition.x;
+		Scene currentScene = SceneManager.GetActiveScene ();
+		string sceneName = currentScene.name;
+	
+		 if (sceneName == "NewCalib") 
+         {
+             isToggled = GameObject.Find("Calibration");
+			 
+			 MoveIndicator(isToggled.GetComponent<calibrationValue>().isToggled);
+         }
+         else if (sceneName == "NewCalib2")
+         {
+			
+			isToggled = GameObject.Find("Calibration2");
+			
+			MoveIndicator(isToggled.GetComponent<calibrationValue2>().isToggled);
+         }
+		
+		
 	}
 
 
@@ -73,11 +96,7 @@ public class toggleScript : MonoBehaviour, IPointerDownHandler {
 			toggleIndicator.DOAnchorPosX(offX, tweenTime);
 	}
 
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
 	public void OnPointerDown (PointerEventData eventData) {
 		Toggle(!isOn);

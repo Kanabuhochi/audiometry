@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
 
+	
+
 	public void startInstruct()
 	{
 		SceneManager.LoadScene("Instruct"); 

@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/Kanabuhochi/Desktop/tests/10.apk
+C:/Users/Kanabuhochi/Desktop/tests/30.apk
 SceneListBegin?
 Assets/Scenes/Menu.unity
 Assets/Scenes/Measure.unity
@@ -139,11 +139,11 @@ f16835701e71dd5d6fb1fed4b7aff1d8 Unity.TextMeshPro.dll:TMPro.TMP_Asset
 eb7351e947fdae8b365f8ef3897a56fd Assembly-CSharp.dll:CodeMonkey.MonoBehaviours.CameraFollowSetup
 837ae46cae41da62999b1ed9b760f53b DOTween.dll:DG.Tweening.Core.DOTweenComponent
 3180a106f785e4a3ecd48418b3a15b55 DOTween.dll:DG.Tweening.Core.DOTweenSettings
-abf8d65b0778ca1bc2c16e05dac1906a Assembly-CSharp.dll:.calibrationValue2
+aec00f7b3ec54693db078d22dcc8a449 Assembly-CSharp.dll:.calibrationValue2
 eaf0bcdb10d442a4029d615f41d09957 Unity.TextMeshPro.dll:TMPro.TextContainer
-198dd79b64f1fd9ca1ff761a65a7e496 Assembly-CSharp.dll:.ProceduralAudioController
+487701bd61b928751a0bfed8f24009b8 Assembly-CSharp.dll:.ProceduralAudioController
 494d83dc685043211fed67b3063a6459 Assembly-CSharp.dll:.Calibration
-c9fa6aeaff3e9b0a18ec652329adc6dc Assembly-CSharp.dll:.calibrationValue
+c29a8ee9fefc45e7994666eaa12b892d Assembly-CSharp.dll:.calibrationValue
 201273fb4f889724fb090164b7d6c657 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkAnimator
 486cd95c82d8305219c352c06b776e1f UnityEngine.Networking.dll:UnityEngine.Networking.NetworkBehaviour
 0f27c39183b9eb95eba0a228bea28273 UnityEngine.Networking.dll:UnityEngine.Networking.NetworkDiscovery
@@ -184,10 +184,14 @@ aac9c55ae7ba4b95b852a7d9c191acd1 Unity.TextMeshPro.dll:TMPro.TextMeshProUGUI
 0a006f3734181ba8b26758f0866152c0 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:.MainMenu
 e04611b8715e6833d2bd7010fc6be10b Unity.TextMeshPro.dll:TMPro.TMP_StyleSheet
-5d1565c9702d23a0f8f7e81e96e46464 Assembly-CSharp.dll:.toggleScript
+07dcb46e1accd423a0da453cb436931a Assembly-CSharp.dll:.toggleScript
 486cd95c82d8305219c352c06b776e1f Assembly-CSharp.dll:CodeMonkey.MonoBehaviours.ComponentActions
 2f9af06a78208a67db480e9bfed4a076 Unity.TextMeshPro.dll:TMPro.TextMeshPro
 9318334b30e9f195f573b2ce00154b95 Unity.TextMeshPro.dll:TMPro.TMP_ColorGradient
 93307bd34e39d73fd24e00ec39c25a91 Unity.TextMeshPro.dll:TMPro.TMP_SubMesh
 0afaaf7605394e73e402972f3637fde5 Assembly-CSharp.dll:CodeMonkey.Utils.Button_Sprite
 860f45262747db6e05ad13a182f4ebe6 Assembly-CSharp.dll:CodeMonkey.Assets
+2ff21a86402cdacf2b1006b37e584501 Assembly-CSharp.dll:.sliderScript
+45ceb00f159a33241f65521c84af900f Assembly-CSharp.dll:.setSlider
+6f7b481d00d49cee52e8f81e33216030 Assembly-CSharp.dll:.setPower
+8b7b1f5cdb538d559ae58c35ed2ad8d5 Assembly-CSharp.dll:.setImpendation

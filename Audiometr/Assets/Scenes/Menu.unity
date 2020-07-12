@@ -324,7 +324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.82
-  m_Text: "Kalibruj s\u0142uchawki"
+  m_Text: "Ustawienia s\u0142uchawek"
 --- !u!222 &98152749
 CanvasRenderer:
   m_ObjectHideFlags: 0

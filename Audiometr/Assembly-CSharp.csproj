@@ -87,6 +87,10 @@
      <Compile Include="Assets\Scripts\Classes\SinusWave.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ProceduralAudioController.cs" />
+     <Compile Include="Assets\Scripts\setImpendation.cs" />
+     <Compile Include="Assets\Scripts\setPower.cs" />
+     <Compile Include="Assets\Scripts\setSlider.cs" />
+     <Compile Include="Assets\Scripts\sliderScript.cs" />
      <Compile Include="Assets\Scripts\toggleScript.cs" />
      <Compile Include="Assets\Scripts\WindowGraph.cs" />
      <None Include="Assets\CodeMonkey\README.txt" />

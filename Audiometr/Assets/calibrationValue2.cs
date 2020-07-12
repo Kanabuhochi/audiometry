@@ -2,20 +2,47 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class calibrationValue2 : MonoBehaviour {
 
 
-	public float noise;
-    public bool safe;
+	public float noise = 100.0f;
+    public bool isToggled = false;
 
-	public InputField ns;
+	public Slider slider;
 	public Image sft;
+	public GameObject toggleSwitch;
 
 	// Use this for initialization
 	void Start () {
-		DontDestroyOnLoad(this.gameObject);
+	toggleSwitch =  GameObject.Find("ToggleSwitch");
+	int objects = FindObjectsOfType<calibrationValue2>().Length;
+     if (objects != 1)
+     {
+         Destroy(this.gameObject);
+     }
+     // if more then one music player is in the scene
+     //destroy ourselves
+     else
+     {
+         DontDestroyOnLoad(gameObject);
+     }
 	}
+
+	 //OnEnable comes first
+     private void OnEnable()
+     {
+         SceneManager.sceneLoaded += SceneManager_sceneLoaded;
+     }
+
+	  private void SceneManager_sceneLoaded(Scene scene, LoadSceneMode mode)
+     {
+         if(scene.isLoaded)
+         {
+             toggleSwitch =  GameObject.Find("ToggleSwitch");
+         }
+     }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,8 +50,8 @@ public class calibrationValue2 : MonoBehaviour {
 	}
 
 	public void setCalib () {
-		noise=float.Parse(ns.text);
-		safe = GameObject.Find("ToggleSwitch").GetComponent<toggleScript>().isOn;
+		noise = slider.GetComponent<setSlider>().number;
+		isToggled = toggleSwitch.GetComponent<toggleScript>().isOn;
 	}
 
 }

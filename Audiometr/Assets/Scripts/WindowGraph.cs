@@ -55,11 +55,11 @@ public class WindowGraph : MonoBehaviour {
         float xSize = 50f;
         float j;
 		float xPosition = -162;
-        float yPosition = 369-(14*resultsTable[0]/5);
+        float yPosition = 450;
         GameObject lastCircleGameObject = null;
         for (int i = 0; i < 7; i++) {
             j =	resultsTable[i]/5;
-            GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition-(19*j)));
+            GameObject circleGameObject = CreateCircle(new Vector2(xPosition, yPosition-(14*j)));
 			xPosition+=70;
             if (lastCircleGameObject != null) {
                 CreateDotConnection(lastCircleGameObject.GetComponent<RectTransform>().anchoredPosition, circleGameObject.GetComponent<RectTransform>().anchoredPosition,'r');
@@ -67,7 +67,7 @@ public class WindowGraph : MonoBehaviour {
             lastCircleGameObject = circleGameObject;
         }
 		xPosition = -162;
-        yPosition = 369-(14*resultsTable[0]/5);
+        yPosition = 450;
 		GameObject lastCrossGameObject = null;
         for (int i = 7; i < 14; i++) {
             j =	resultsTable[i]/5;
