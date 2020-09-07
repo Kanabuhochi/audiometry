@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 
 public class calibrationValue : MonoBehaviour {
 
@@ -46,6 +48,14 @@ public class calibrationValue : MonoBehaviour {
          DontDestroyOnLoad(gameObject);
      }
 	}
+
+	public void SaveFile()
+     {
+ 		SaveData ConfigData = new SaveData("Twoja konfiguracja", imp.GetComponent<InputField>().text, pow.GetComponent<InputField>().text);
+		 
+        string config = JsonUtility.ToJson(ConfigData);
+        System.IO.File.WriteAllText(Application.persistentDataPath + "/ConfigData.json", config);
+     }
 
 	private void OnEnable()
      {

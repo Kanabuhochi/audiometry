@@ -87,13 +87,13 @@ public class ProceduralAudioController : MonoBehaviour {
 		right = false;
 		db = -80.0f;
 		freq = 0;
-		//impendation = GameObject.Find("Calibration").GetComponent<calibrationValue>().impendation;
+		impendation = GameObject.Find("Calibration").GetComponent<calibrationValue>().impendation;
 		impendation = 16.0f;
 		power = 110.0f;
-		//power = GameObject.Find("Calibration").GetComponent<calibrationValue>().power;
-		//noiseLevel = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().noise;
+		power = GameObject.Find("Calibration").GetComponent<calibrationValue>().power;
+		noiseLevel = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().noise;
 		noiseLevel = db-(db*0.8f);
-		//safety = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().safe;
+		safety = GameObject.Find("Calibration2").GetComponent<calibrationValue2>().safe;
 		safety = true;
 		sinusAudioWave = new SinusWave ();
 		useSinusAudioWave = true;
@@ -182,47 +182,47 @@ public class ProceduralAudioController : MonoBehaviour {
 		}
 	}
 
-	// void OnAudioFilterRead(float[] data, int channels){
+	void OnAudioFilterRead(float[] data, int channels){
 		
-	// 	currentDspTime = AudioSettings.dspTime;
-	// 	dataLen = data.Length / channels;	
-	// 	chunkTime = dataLen / sampleRate;	
-	// 	dspTimeStep = chunkTime / dataLen;	
+		currentDspTime = AudioSettings.dspTime;
+		dataLen = data.Length / channels;	
+		chunkTime = dataLen / sampleRate;	
+		dspTimeStep = chunkTime / dataLen;	
 
-	// 	double preciseDspTime;
-	// 	for (int i = 0; i < dataLen; i++)	{ 
-	// 		preciseDspTime = currentDspTime +  i * dspTimeStep;
-	// 		double signalValue = 0.0;
-	// 		double currentFreq = mainFrequency;
+		double preciseDspTime;
+		for (int i = 0; i < dataLen; i++)	{ 
+			preciseDspTime = currentDspTime +  i * dspTimeStep;
+			double signalValue = 0.0;
+			double currentFreq = mainFrequency;
 
-	// 		if (useFrequencyModulation) {
+			if (useFrequencyModulation) {
 
-	// 			double freqOffset = (frequencyModulationOscillatorIntensity * mainFrequency * 0.75) / 100.0;
-	// 			currentFreq += mapValueD (frequencyModulationOscillator.calculateSignalValue (preciseDspTime, frequencyModulationOscillatorFrequency), -1.0, 1.0, -freqOffset, freqOffset);
-	// 			frequencyModulationRangeOut = (float)frequencyModulationOscillator.calculateSignalValue (preciseDspTime, frequencyModulationOscillatorFrequency) * 0.5f + 0.5f;
-	// 		} else {
-	// 			frequencyModulationRangeOut = 0.0f;
-	// 		}
+				double freqOffset = (frequencyModulationOscillatorIntensity * mainFrequency * 0.75) / 100.0;
+				currentFreq += mapValueD (frequencyModulationOscillator.calculateSignalValue (preciseDspTime, frequencyModulationOscillatorFrequency), -1.0, 1.0, -freqOffset, freqOffset);
+				frequencyModulationRangeOut = (float)frequencyModulationOscillator.calculateSignalValue (preciseDspTime, frequencyModulationOscillatorFrequency) * 0.5f + 0.5f;
+			} else {
+				frequencyModulationRangeOut = 0.0f;
+			}
 			
-	// 		if (useSinusAudioWave) {
-	// 			signalValue += 1 * sinusAudioWave.calculateSignalValue (preciseDspTime, currentFreq);
-	// 		}
+			if (useSinusAudioWave) {
+				signalValue += 1 * sinusAudioWave.calculateSignalValue (preciseDspTime, currentFreq);
+			}
 
-	// 		if (useAmplitudeModulation) {
-	// 			signalValue *= mapValueD (amplitudeModulationOscillator.calculateSignalValue (preciseDspTime, amplitudeModulationOscillatorFrequency), -1.0, 1.0, 0.0, 1.0);
+			if (useAmplitudeModulation) {
+				signalValue *= mapValueD (amplitudeModulationOscillator.calculateSignalValue (preciseDspTime, amplitudeModulationOscillatorFrequency), -1.0, 1.0, 0.0, 1.0);
 				
-	// 		} else {
+			} else {
 
-	// 		}
+			}
 
-	// 		float x = masterVolume * 0.5f * (float)signalValue;
+			float x = masterVolume * 0.5f * (float)signalValue;
 
-	// 		for (int j = 0; j < channels; j++) {
-	// 			data[i * channels + j] = x;
-	// 		}
-	// 	}
+			for (int j = 0; j < channels; j++) {
+				data[i * channels + j] = x;
+			}
+		}
 
-	// }
+	}
 
 	double mapValueD(double referenceValue, double fromMin, double fromMax, double toMin, double toMax) {
 		return toMin + (referenceValue - fromMin) * (toMax - toMin) / (fromMax - fromMin);

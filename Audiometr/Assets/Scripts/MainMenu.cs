@@ -47,6 +47,10 @@ public class MainMenu : MonoBehaviour {
 		SceneManager.LoadScene("NewCalib2"); 
 	}
 
+	public void Configs() 
+	{
+		SceneManager.LoadScene("Configs");
+	}
 
 	public void Exit()
 	{

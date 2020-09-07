@@ -84,7 +84,9 @@
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUnityVersion.cs" />
      <Compile Include="Assets\Demigiant\DOTween\Modules\DOTweenModuleUtils.cs" />
      <Compile Include="Assets\resultsScript.cs" />
+     <Compile Include="Assets\Scripts\Classes\SaveData.cs" />
      <Compile Include="Assets\Scripts\Classes\SinusWave.cs" />
+     <Compile Include="Assets\Scripts\loadData.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ProceduralAudioController.cs" />
      <Compile Include="Assets\Scripts\setImpendation.cs" />
